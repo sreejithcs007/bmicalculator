@@ -5,20 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
-void main() {
-  runApp(MyApp3());
-}
-class MyApp3 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ChangeNotifierProvider(
-        create: (context) => BmiCont(),
-        child: Bmiview(),
-      ),
-    );
-  }
-}
+
 class Bmiview extends StatelessWidget {
   String? res;
 
@@ -180,9 +167,8 @@ class Bmiview extends StatelessWidget {
                         value: Bcon.hight.toDouble(),
                         min: 0.0,
                         interval: 50,
-
                         max: 300.0,
-                        //enableTooltip: true,
+
 
                         onChanged: (value) {
                           Provider.of<BmiCont>(context, listen: false)
@@ -197,7 +183,6 @@ class Bmiview extends StatelessWidget {
                 //color: Colors.red,
                 width: MediaQuery.of(context).size.width,
                 child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Padding(
                       padding:
@@ -350,9 +335,7 @@ class Bmiview extends StatelessWidget {
                                 Bcon.weight1,
                                 Bcon.age1,
                               )));
-                      Bcon.ispassed(true);
-                      // Bcon.age1;
-                      // Bcon.hight;
+
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text("Enter your height and age")));
